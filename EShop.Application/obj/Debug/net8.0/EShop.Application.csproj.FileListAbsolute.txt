@@ -1,0 +1,17 @@
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\bin\Debug\net8.0\EShop.Application.deps.json
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\bin\Debug\net8.0\EShop.Application.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\bin\Debug\net8.0\EShop.Application.pdb
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\bin\Debug\net8.0\EShop.Domain.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\bin\Debug\net8.0\EShop.Infra.Data.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\bin\Debug\net8.0\EShop.Infra.Data.pdb
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\bin\Debug\net8.0\EShop.Domain.pdb
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.csproj.AssemblyReference.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.AssemblyInfoInputs.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.AssemblyInfo.cs
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.csproj.CoreCompileInputs.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.csproj.CopyComplete
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\refint\EShop.Application.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.pdb
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\ref\EShop.Application.dll

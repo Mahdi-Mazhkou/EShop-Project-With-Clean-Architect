@@ -1,0 +1,17 @@
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\bin\Debug\net8.0\EShop.Infra.Data.deps.json
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\bin\Debug\net8.0\EShop.Infra.Data.runtimeconfig.json
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\bin\Debug\net8.0\EShop.Infra.Data.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\bin\Debug\net8.0\EShop.Infra.Data.pdb
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\bin\Debug\net8.0\EShop.Domain.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\bin\Debug\net8.0\EShop.Domain.pdb
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.csproj.AssemblyReference.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.AssemblyInfo.cs
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.csproj.CopyComplete
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\refint\EShop.Infra.Data.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.pdb
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.genruntimeconfig.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\ref\EShop.Infra.Data.dll

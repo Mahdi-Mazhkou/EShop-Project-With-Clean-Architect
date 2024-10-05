@@ -1,0 +1,30 @@
+﻿@using EShop.Domain.ViewModels
+@model RegisterViewModel
+
+<section class="border-radius">
+    <header><h3> ثبت نام در سایت </h3></header>
+    <article>
+        <div class="col-md-10 col-sm-10 col-xs-12">
+
+            <form asp-action="Register" method="post">
+                <div class="form-group">
+                    <input asp-for="UserName" class="form-control" placeholder="نام کاربری ">
+                </div>
+                <div class="form-group">
+                    <input asp-for="UserEmail" class="form-control" placeholder=" ایمیل ">
+                </div>
+                <div class="form-group">
+                    <input asp-for="Password" class="form-control" placeholder="رمز عبور">
+                </div>
+                <div class="form-group">
+                    <input asp-for="RePassword" class="form-control" placeholder="تکرار رمز عبور ">
+                </div>
+                <label><input type="checkbox"> قوانین را میپذیرم  </label>
+                <input type="submit" value=" ثبت نام">
+                <div asp-validation-summary="All"></div>
+            </form>
+
+        </div>
+        <div class="clearfix"></div>
+    </article>
+</section>
