@@ -16,5 +16,8 @@ namespace EShop.Infra.Data.Context
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<ProductGroup> ProductGroups { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }

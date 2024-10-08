@@ -9,6 +9,7 @@ C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\E
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.AssemblyInfoInputs.cache
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.AssemblyInfo.cs
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.sourcelink.json
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.csproj.CopyComplete
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\EShop.Infra.Data.dll
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Infra.Data\obj\Debug\net8.0\refint\EShop.Infra.Data.dll

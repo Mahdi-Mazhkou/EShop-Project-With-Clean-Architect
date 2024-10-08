@@ -256,6 +256,7 @@ C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0\Final_EShopProject.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0\Final_EShopProject.RazorAssemblyInfo.cache
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0\Final_EShopProject.RazorAssemblyInfo.cs
+C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0\Final_EShopProject.sourcelink.json
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\obj\Debug\net8.0\staticwebassets\msbuild.Final_EShopProject.Microsoft.AspNetCore.StaticWebAssets.props

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EShop.Domain.Models;
 using EShop.Infra.Data.Context;
+using EShop.Application.Extentions;
 
 namespace Final_EShopProject.Areas.Admin.Controllers
 {
@@ -55,10 +56,13 @@ namespace Final_EShopProject.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserName,UserEmail,Password,IsAdmin,ConfirmCode,Id,CreateDate,IsDelete")] User user)
+        public async Task<IActionResult> Create([Bind("UserName,UserEmail,Password")] User user)
         {
             if (ModelState.IsValid)
             {
+                user.CreateDate = DateTime.Now;
+                user.IsDelete = false;
+                user.Password = user.Password.EncodePasswordMd5();
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -143,7 +147,7 @@ namespace Final_EShopProject.Areas.Admin.Controllers
             var user = await _context.Users.FindAsync(id);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                user.IsDelete = true;
             }
 
             await _context.SaveChangesAsync();

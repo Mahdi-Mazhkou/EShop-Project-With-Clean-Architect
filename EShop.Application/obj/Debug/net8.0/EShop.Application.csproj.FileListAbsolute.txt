@@ -10,6 +10,7 @@ C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.AssemblyInfoInputs.cache
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.AssemblyInfo.cs
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.csproj.CoreCompileInputs.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.sourcelink.json
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.csproj.CopyComplete
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\EShop.Application.dll
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Application\obj\Debug\net8.0\refint\EShop.Application.dll

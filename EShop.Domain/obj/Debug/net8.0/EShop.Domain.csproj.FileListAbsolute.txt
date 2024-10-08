@@ -5,6 +5,7 @@ C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.AssemblyInfoInputs.cache
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.AssemblyInfo.cs
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.csproj.CoreCompileInputs.cache
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.sourcelink.json
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.dll
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\refint\EShop.Domain.dll
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.pdb

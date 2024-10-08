@@ -9,14 +9,23 @@ namespace EShop.Domain.Models
 {
     public class User:BaseEntity
     {
-        [Required]
+        [Display(Name = "نام کاربری")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public string UserName { get; set; }
-        [Required]
+
+        [Display(Name = "ایمیل")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public string UserEmail { get; set; }
-        [Required]
+
+        [Display(Name = "پسورد")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public string Password { get; set; }
-        [Required]
+
+        [Display(Name = "ادمین می باشد؟")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public bool IsAdmin { get; set; }
+
+        [Display(Name = "کد تایید")]
         public string? ConfirmCode { get; set; }
     }
 }
