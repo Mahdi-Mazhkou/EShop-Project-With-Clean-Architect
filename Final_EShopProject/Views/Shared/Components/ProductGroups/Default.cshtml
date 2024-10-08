@@ -1,0 +1,18 @@
+﻿@using EShop.Domain.Models
+@model IEnumerable<ProductGroup>
+
+<section class="border-radius category-side">
+    <header><h3> دسته بندی ها </h3></header>
+    <article>
+        <ul class="category-menu">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <h2><a href="/Group/@item.Id/@item.GroupTitle">@item.GroupTitle</a></h2>
+
+                </li>
+            }
+
+        </ul>
+    </article>
+</section>

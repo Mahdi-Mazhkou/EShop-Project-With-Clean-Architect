@@ -1,0 +1,49 @@
+﻿@using EShop.Application.Extentions
+@model IEnumerable<EShop.Domain.Models.ProductGroup>
+
+@{
+    ViewData["Title"] = "گروه محصول";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a class="link-dark btn btn-success" asp-action="Create">ایجاد گروه محصول جدید</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupTitle)
+                </td>
+                <td>
+                    @item.CreateDate.ToShamsi()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDelete)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a> |
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">جزئیات</a> |
+                    <a class="btn btn-warning" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
