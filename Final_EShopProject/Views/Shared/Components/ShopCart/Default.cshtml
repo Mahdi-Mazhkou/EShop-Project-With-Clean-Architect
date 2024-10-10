@@ -1,0 +1,24 @@
+﻿@using EShop.Domain.Models
+@model Order
+
+<section class="border-radius basket-side">
+    <header><h3> سبد خرید شما  </h3></header>
+    <article>
+        <ul>
+            @if (Model != null)
+            {
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <li>
+                        <img class="border-radius" src="/Images/@item.Product.ProductImages.FirstOrDefault()?.ImageName">
+                        <div class="left-basket">
+                            <a href="">@item.Product.Title <span class="border-radius"> @item.Count </span></a>
+                        </div>
+                    </li>
+                }
+            }
+         
+        </ul>
+        <a asp-area="UserPanel" asp-controller="User" asp-action="ShowShopCart" class="show-basket-button border-radius">مشاهده سبد خرید</a>
+    </article>
+</section>

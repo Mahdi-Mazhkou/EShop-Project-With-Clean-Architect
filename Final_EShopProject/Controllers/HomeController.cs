@@ -17,9 +17,14 @@ namespace Final_EShopProject.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageId=1)
         {
-            var products= _context.Products.Include(x=>x.ProductImages).OrderByDescending(x=>x.CreateDate).Take(12);
+            int take = 1;
+            int skip = (pageId - 1) * take;
+            int pageCount = _context.Products.Count() / take;
+            ViewBag.PageCount=pageCount;
+            var products= _context.Products.Include(x=>x.ProductImages).OrderByDescending(x=>x.CreateDate).Skip(skip).Take(take);
+            ViewBag.PageId=pageId;
             return View(products);
         }
 

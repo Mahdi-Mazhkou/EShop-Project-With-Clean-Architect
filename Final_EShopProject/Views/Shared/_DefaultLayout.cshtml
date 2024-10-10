@@ -39,7 +39,7 @@
                             <li><a asp-action="Register" asp-controller="Account"><i class="fa fa-user-plus"></i> <label>عضویت</label> </a></li>
                             <li><a asp-action="Login" asp-controller="Account"><i class="fa fa-user"></i> <label>ورود به سایت</label> </a></li>
                         }
-                        <li><a href=""><i class="fa fa-shopping-bag"></i> سبد خرید <span>10</span></a></li>
+                        <li><a href=""><i class="fa fa-shopping-bag"></i> سبد خرید <span id="countShopCart">-</span></a></li>
                     </ul>
                 </div>
                 <!-- End Clientarea and Basket -->
@@ -104,48 +104,27 @@
     </nav>
     <!-- End Mega Menu -->
     <!-- slider -->
-    @RenderSection("Slider",false);
+    @RenderSection("Slider", false);
     <!-- End slider -->
 
     <div class="container margin-top-25">
         <aside class="col-md-3 col-sm-4 right-side-content">
             <!-- Basket -->
-            <section class="border-radius basket-side">
-                <header><h3> سبد خرید شما  </h3></header>
-                <article>
-                    <ul>
-                        <li>
-                            <img class="border-radius" src="/img/1.jpg">
-                            <div class="left-basket">
-                                <a href="">محصول شماره یک <span class="border-radius"> 2 </span></a>
-                            </div>
-                        </li>
-                        <li>
-                            <img class="border-radius" src="/img/1.jpg">
-                            <div class="left-basket">
-                                <a href="">محصول شماره یک <span class="border-radius"> 2 </span></a>
-                            </div>
-                        </li>
-                        <li>
-                            <img class="border-radius" src="/img/1.jpg">
-                            <div class="left-basket">
-                                <a href="">محصول شماره یک <span class="border-radius"> 2 </span></a>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="" class="show-basket-button border-radius">مشاهده سبد خرید</a>
-                </article>
-            </section>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @await Component.InvokeAsync("ShopCart")
+                ;
+            }
             <!-- End Basket -->
             <!-- Category -->
             @await Component.InvokeAsync("ProductGroups");
-          
+
             <!-- End Category -->
         </aside>
         <div class="col-md-9 col-sm-8 left-side-content">
 
 
-          @RenderBody()
+            @RenderBody()
 
 
         </div>
@@ -226,6 +205,13 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/owl.carousel.js"></script>
     <script src="/js/script.js"></script>
+    <script>
+        $(function () {
+            $.get("/Product/CountShopCart", function (res) {
+                $("#countShopCart").html(res)
+            })
+        })
+    </script>
 </body>
 </html>
 

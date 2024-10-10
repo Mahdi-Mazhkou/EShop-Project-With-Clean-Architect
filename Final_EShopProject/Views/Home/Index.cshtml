@@ -4,7 +4,7 @@
     ViewData["Title"] = "فروشگاه  ساز برنامه نویسان مهدی ماژکو";
 }
 
-@section Slider{
+@section Slider {
     <div class="slider-layer">
         <div id="slider-one" class="owl-carousel">
             <div class="item">
@@ -27,6 +27,23 @@
         }
         <div class="clearfix"></div>
     </article>
+    @if (ViewBag.PageCount > 1)
+    {
+
+        <div class="pagination-layer">
+
+            <ul class="pagination">
+                @for (int i = 1; i <= ViewBag.PageCount; i++)
+                {
+                    <li class="@((ViewBag.PageId==i)?"active":"")"><a href="/?pageId=@i">@i</a></li>
+                }
+            </ul>
+
+
+        </div>
+
+    }
+
 </section>
 
 

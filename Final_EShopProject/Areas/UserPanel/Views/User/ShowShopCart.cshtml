@@ -1,0 +1,73 @@
+﻿@using EShop.Domain.Models
+@model Order
+
+@{
+    ViewData["Title"] = "ShowShopCart";
+    int counter = 1;
+}
+
+<h1 style="margin-bottom:30px">مشاهده سبد خرید</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                کالا
+            </th>
+            <th>
+                تعداد
+            </th>
+            <th>
+                قیمت
+            </th>
+            <th>
+                جمع
+            </th>
+            <th>
+                عملیات
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td>
+                    @counter
+                </td>
+                <td>
+                    @item.Product.Title
+                </td>
+                <td>
+                    @item.Count
+                </td>
+                <td>
+                    @item.Product.Price
+                </td>
+                <td>
+                    @(item.Count * item.Product.Price)
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-area="UserPanel" asp-controller="User" asp-action="DeleteFromCart"  asp-route-id="@item.ProductId">حذف</a>
+                </td>
+            </tr>
+            counter++;
+        }
+        <tr>
+            <td colspan="2">جمع تعداد</td>
+            <td>@Model.OrderDetails.Sum(d => d.Count)</td>
+            <td>جمع کل</td>
+            <td colspan="2">@Model.OrderDetails.Sum(d => d.Count * d.Product.Price)</td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td colspan="3">
+                <a class="btn btn-success btn-block">پرداخت نهایی</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
