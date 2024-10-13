@@ -10,3 +10,4 @@ C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\refint\EShop.Domain.dll
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.pdb
 C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\ref\EShop.Domain.dll
+C:\Users\IHC\source\repos\Final_EShopProject\EShop.Domain\obj\Debug\net8.0\EShop.Domain.csproj.AssemblyReference.cache

@@ -19,6 +19,7 @@ namespace EShop.Infra.IOC
             #region Services
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailSender, EmailSender>();
+            services.AddScoped<IZarinpalPaymentService, SandBoxZarinpalPaymentService>();
             #endregion
 
             #region Repositories

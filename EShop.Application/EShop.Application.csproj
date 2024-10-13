@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Zarinpal" Version="2.0.4" />
+    <PackageReference Include="ZarinpalSandbox" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EShop.Infra.Data\EShop.Infra.Data.csproj" />
   </ItemGroup>
 

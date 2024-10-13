@@ -39,6 +39,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Zarinpal": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "ZarinpalSandbox": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -118,6 +128,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Zarinpal": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "ZarinpalSandbox": {
+              "target": "Package",
+              "version": "[2.0.4, )"
             }
           },
           "imports": [
