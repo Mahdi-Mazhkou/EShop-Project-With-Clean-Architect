@@ -21,5 +21,6 @@ namespace EShop.Infra.Data.Context
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JekEGbDF9D+iyEw5GXJDXFzzLkuM2C58s4Az76eqeoo=",
+  "Hash": "t8aSirhs/gvMFQ22jLs0n5RDoLpjdlDrV0QLx18RjfA=",
   "Source": "Final_EShopProject",
   "BasePath": "_content/Final_EShopProject",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.10\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.10\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.10\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.10\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.10\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -52,7 +52,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.8\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\IHC\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.10\\staticwebassets\\QuickGrid.razor.js"
     },
     {
       "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Final_EShopProject.styles.css",
@@ -3302,6 +3302,63 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Sliders\\53461fb5-7ac2-40fe-8be4-f2cdc3dcc99a.webp",
+      "SourceId": "Final_EShopProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\",
+      "BasePath": "_content/Final_EShopProject",
+      "RelativePath": "Sliders/53461fb5-7ac2-40fe-8be4-f2cdc3dcc99a.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Sliders\\53461fb5-7ac2-40fe-8be4-f2cdc3dcc99a.webp"
+    },
+    {
+      "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Sliders\\6e584e55-6d49-4824-bac8-b343c631d31b.webp",
+      "SourceId": "Final_EShopProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\",
+      "BasePath": "_content/Final_EShopProject",
+      "RelativePath": "Sliders/6e584e55-6d49-4824-bac8-b343c631d31b.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Sliders\\6e584e55-6d49-4824-bac8-b343c631d31b.webp"
+    },
+    {
+      "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Sliders\\85dd1079-d1b8-4449-8d95-074d90490da5.webp",
+      "SourceId": "Final_EShopProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\",
+      "BasePath": "_content/Final_EShopProject",
+      "RelativePath": "Sliders/85dd1079-d1b8-4449-8d95-074d90490da5.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Sliders\\85dd1079-d1b8-4449-8d95-074d90490da5.webp"
     }
   ]
 }

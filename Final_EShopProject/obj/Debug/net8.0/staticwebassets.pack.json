@@ -297,6 +297,18 @@
       "PackagePath": "staticwebassets\\Images\\fb416b6a-c2fd-4b27-9ade-3ffd391709f0.webp"
     },
     {
+      "Id": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Sliders\\53461fb5-7ac2-40fe-8be4-f2cdc3dcc99a.webp",
+      "PackagePath": "staticwebassets\\Sliders\\53461fb5-7ac2-40fe-8be4-f2cdc3dcc99a.webp"
+    },
+    {
+      "Id": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Sliders\\6e584e55-6d49-4824-bac8-b343c631d31b.webp",
+      "PackagePath": "staticwebassets\\Sliders\\6e584e55-6d49-4824-bac8-b343c631d31b.webp"
+    },
+    {
+      "Id": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Sliders\\85dd1079-d1b8-4449-8d95-074d90490da5.webp",
+      "PackagePath": "staticwebassets\\Sliders\\85dd1079-d1b8-4449-8d95-074d90490da5.webp"
+    },
+    {
       "Id": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\css\\bootstrap-rtl.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-rtl.min.css"
     },

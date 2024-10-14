@@ -1,0 +1,13 @@
+﻿@using EShop.Domain.Models
+@model IEnumerable<Slider>
+
+<div class="slider-layer">
+    <div id="slider-one" class="owl-carousel">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <a href=""><img src="/Sliders/@item.ImageName" title="@item.Title"></a>
+            </div>
+        }
+    </div>
+</div>
