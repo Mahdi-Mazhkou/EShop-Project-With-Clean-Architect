@@ -1,10 +1,11 @@
-﻿@model EShop.Domain.Models.User
+﻿@using EShop.Domain.ViewModels.User
+@model EditUserViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "ویرایش";
 }
 
-<h1>Edit</h1>
+<h1>@ViewData["Title"]</h1>
 
 <h4>User</h4>
 <hr />
@@ -22,41 +23,21 @@
                 <input asp-for="UserEmail" class="form-control" />
                 <span asp-validation-for="UserEmail" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
                 </label>
             </div>
-            <div class="form-group">
-                <label asp-for="ConfirmCode" class="control-label"></label>
-                <input asp-for="ConfirmCode" class="form-control" />
-                <span asp-validation-for="ConfirmCode" class="text-danger"></span>
-            </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="CreateDate" class="control-label"></label>
-                <input asp-for="CreateDate" class="form-control" />
-                <span asp-validation-for="CreateDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsDelete" /> @Html.DisplayNameFor(model => model.IsDelete)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+                <input type="submit" value="ویرایش"btn btn-primary" />
+            </div>                          
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">بازگشت به صفحه اصلی</a>
 </div>
 
 @section Scripts {

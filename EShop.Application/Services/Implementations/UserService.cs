@@ -132,5 +132,148 @@ namespace EShop.Application.Services.Implementations
             await _userRepository.SaveAsync();
             return ResetPasswordResult.Success;
         }
+        public async Task<ResultCreateUser> CreateUserAsync(CreateUserViewModel model)
+        {
+            try
+            {
+                if (await _userRepository.IsUserExistsByEmail(model.UserEmail.Trim().ToLower()))
+                {
+                    return ResultCreateUser.EmailInValid;
+                }
+
+                User user = new User()
+                {
+                    UserName = model.UserName,
+                    UserEmail = model.UserEmail.Trim().ToLower(),
+                    Password = model.Password.EncodePasswordMd5(),
+                    CreateDate = DateTime.Now,
+                    IsAdmin = model.IsAdmin
+
+                };
+                await _userRepository.InsertAsync(user);
+                await _userRepository.SaveAsync();
+                return ResultCreateUser.Success;
+            }
+            catch
+            {
+
+                return ResultCreateUser.Failed;
+            }
+           
+         
+        }
+
+        public async Task<List<ListOfUsersViewModel>> GetListOfUsers()
+        {
+           var users= await _userRepository.GetAllAsync();
+            return users.Select(x => new ListOfUsersViewModel()
+            {
+                Id = x.Id,
+                UserName = x.UserName,
+                UserEmail = x.UserEmail,
+                CreateDate = x.CreateDate,
+                IsAdmin = x.IsAdmin,
+                IsDelete = x.IsDelete
+            }).ToList();
+        }
+
+        public async Task<EditUserViewModel> GetUserForEditAsync(int id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+                return null;
+
+            return new EditUserViewModel()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                IsAdmin = user.IsAdmin,
+                UserEmail = user.UserEmail
+            };
+        }
+
+        public async Task<ResultEditUser> UpdateUserByIdAsync(EditUserViewModel model)
+        {
+            try
+            {
+                User? user = await _userRepository.GetUserByIdAsync(model.Id);
+                if (user == null)
+                    return ResultEditUser.UserNotFound;
+
+                if (await _userRepository.IsUserExistsByEmail(model.UserEmail.Trim().ToLower()))
+                {
+                    return ResultEditUser.EmailInValid;
+                }
+
+                user.UserName = model.UserName;
+                user.UserEmail = model.UserEmail.Trim().ToLower();
+                user.IsAdmin = model.IsAdmin;
+
+                _userRepository.Update(user);
+                await _userRepository.SaveAsync();
+                return ResultEditUser.Success;
+            }
+            catch 
+            {
+
+                return ResultEditUser.Failed;
+            }
+
+           
+        }
+
+        public async Task<UserDetailsViewModel> GetUserDetailsByIdAsync(int id)
+        {
+            var user= await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+                return null;
+
+            return new UserDetailsViewModel()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                UserEmail = user.UserEmail,
+                Password = user.Password,
+                ConfirmCode = user.ConfirmCode,
+                CreateDate = user.CreateDate,
+                IsAdmin = user.IsAdmin,
+                IsDelete = user.IsDelete,
+
+            };
+        }
+
+        public async Task<ResultDeleteUser> DeleteUser(int id)
+        {
+            try
+            {
+                await _userRepository.DeleteUser(id);
+                return ResultDeleteUser.Success;
+            }
+            catch
+            {
+
+                return ResultDeleteUser.Failed;
+            }
+        }
+
+        public async Task<DeleteUserViewModel> GetUserDeleteByIdAsync(int id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+                return null;
+
+            return new DeleteUserViewModel()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                UserEmail = user.UserEmail,
+                Password = user.Password,
+                ConfirmCode = user.ConfirmCode,
+                CreateDate = user.CreateDate,
+                IsAdmin = user.IsAdmin,
+                IsDelete = user.IsDelete,
+
+            };
+        }
     }
 }

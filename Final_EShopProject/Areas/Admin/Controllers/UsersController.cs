@@ -8,35 +8,35 @@ using Microsoft.EntityFrameworkCore;
 using EShop.Domain.Models;
 using EShop.Infra.Data.Context;
 using EShop.Application.Extentions;
+using EShop.Domain.ViewModels.User;
+using EShop.Application.Services.Interfaces;
+using EShop.Domain.ViewModels;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 
 namespace Final_EShopProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class UsersController : Controller
     {
-        private readonly MyEShopContext _context;
+        private readonly IUserService _service;
 
-        public UsersController(MyEShopContext context)
+        public UsersController(IUserService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        // GET: Admin/Users
+        #region :List Of Users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            return View(await _service.GetListOfUsers());
         }
+        #endregion
 
-        // GET: Admin/Users/Details/5
-        public async Task<IActionResult> Details(int? id)
+        #region Details Of User
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var user = await _service.GetUserDetailsByIdAsync(id);
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -44,41 +44,51 @@ namespace Final_EShopProject.Areas.Admin.Controllers
 
             return View(user);
         }
+        #endregion
 
-        // GET: Admin/Users/Create
+
+        #region Create User
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserName,UserEmail,Password")] User user)
+        public async Task<IActionResult> Create(CreateUserViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                user.CreateDate = DateTime.Now;
-                user.IsDelete = false;
-                user.Password = user.Password.EncodePasswordMd5();
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(model);
             }
-            return View(user);
+
+            var result = await _service.CreateUserAsync(model);
+            switch (result)
+            {
+                case ResultCreateUser.Success:
+                    return RedirectToAction(nameof(Index));
+
+                case ResultCreateUser.Failed:
+                    return View(model);
+
+                case ResultCreateUser.EmailInValid:
+                    {
+                        ModelState.AddModelError("UserEmail", "ایمیل وارد شده از قبل موجود است.");
+                        return View(model);
+                    }
+                default: return View(model);
+
+            }
+
         }
 
-        // GET: Admin/Users/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        #endregion
 
-            var user = await _context.Users.FindAsync(id);
+
+        #region Edit User
+        public async Task<IActionResult> Edit(int id)
+        {
+
+            var user = await _service.GetUserForEditAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -86,51 +96,43 @@ namespace Final_EShopProject.Areas.Admin.Controllers
             return View(user);
         }
 
-        // POST: Admin/Users/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserName,UserEmail,Password,IsAdmin,ConfirmCode,Id,CreateDate,IsDelete")] User user)
+        public async Task<IActionResult> Edit(EditUserViewModel model)
         {
-            if (id != user.Id)
+            var result = await _service.UpdateUserByIdAsync(model);
+
+            switch (result)
             {
-                return NotFound();
+                case ResultEditUser.Success:
+                    return RedirectToAction(nameof(Index));
+
+                case ResultEditUser.Failed:
+                    return View(model);
+
+                case ResultEditUser.UserNotFound:
+                    {
+                        ModelState.AddModelError("UserName", "کاربری یافت نشد.");
+                        return View(model);
+                    }
+                case ResultEditUser.EmailInValid:
+                    {
+                        ModelState.AddModelError("UserEmail", "کاربری با ایمیل وارد شده در سیستم وجود دارد.");
+                        return View(model);
+                    }
+                default: return View(model);
+
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UserExists(user.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
+
         }
+        #endregion
 
-        // GET: Admin/Users/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+
+        #region Delete User
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var user = await _service.GetUserDeleteByIdAsync(id);
 
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -138,25 +140,22 @@ namespace Final_EShopProject.Areas.Admin.Controllers
 
             return View(user);
         }
-
-        // POST: Admin/Users/Delete/5
+       
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user != null)
+            var user = await _service.DeleteUser(id);
+            switch (user)
             {
-                user.IsDelete = true;
+                case ResultDeleteUser.Success:
+                    return RedirectToAction(nameof(Index));
+                case ResultDeleteUser.Failed:
+                    return RedirectToAction(nameof(Delete));
+                default: return RedirectToAction(nameof(Delete));
             }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
+        #endregion
 
-        private bool UserExists(int id)
-        {
-            return _context.Users.Any(e => e.Id == id);
-        }
     }
 }

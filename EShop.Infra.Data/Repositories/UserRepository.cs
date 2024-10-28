@@ -70,5 +70,15 @@ namespace EShop.Infra.Data.Repositories
         {
              return  await _context.Users.FirstOrDefaultAsync(x=>x.ConfirmCode==ConfirmCode); 
         }
+
+        public async Task DeleteUser(int id)
+        {
+            var user =  await GetUserByIdAsync(id);
+            if (user != null)
+            {
+                user.IsDelete = true;
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace EShop.Domain.Interfaces
         void Update(User user);
         void Delete(User user);
         void Delete(int id);
+        Task DeleteUser(int id);
         Task<bool>IsUserExistsByEmail(string email);
         Task<User> GetUserByEmail(string email);
         Task<User> GetUserByConfirmCode(string ConfirmCode);
