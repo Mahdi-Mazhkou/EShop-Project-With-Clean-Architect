@@ -19,6 +19,8 @@ C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
+C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.Build.dll
 C:\Users\IHC\source\repos\Final_EShopProject\Final_EShopProject\bin\Debug\net8.0\Microsoft.Build.Framework.dll

@@ -1,5 +1,6 @@
 ﻿@using EShop.Domain.Models
-@model EShop.Domain.Models.Product
+@using EShop.Domain.ViewModels.Product
+@model EditProductViewModel
 
 @{
     ViewData["Title"] = "ویرایش کالا";
@@ -13,6 +14,7 @@
     <div class="col-md-12">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="GroupId" class="control-label"></label>
                 <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
@@ -75,7 +77,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">بازگشت</a>
+    <a class="btn btn-success" asp-action="Index">بازگشت</a>
 </div>
 
 @section Scripts {

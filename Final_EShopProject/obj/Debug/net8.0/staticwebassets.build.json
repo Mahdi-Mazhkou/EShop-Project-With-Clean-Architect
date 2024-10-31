@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "t8aSirhs/gvMFQ22jLs0n5RDoLpjdlDrV0QLx18RjfA=",
+  "Hash": "4jFO9kJIxEFmZjg6vIjk7vi1gKnLs/oD1kND/nigs4Y=",
   "Source": "Final_EShopProject",
   "BasePath": "_content/Final_EShopProject",
   "Mode": "Default",
@@ -1746,12 +1746,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\145aee32-378f-4d60-bdf6-8aac605186eb.webp"
     },
     {
-      "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Images\\38390adb-1c4b-4efe-866e-5fb2dec4c2b8.webp",
+      "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Images\\4ef645fc-d591-43ff-ab2a-09e3d7e2a102.webp",
       "SourceId": "Final_EShopProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\",
       "BasePath": "_content/Final_EShopProject",
-      "RelativePath": "Images/38390adb-1c4b-4efe-866e-5fb2dec4c2b8.webp",
+      "RelativePath": "Images/4ef645fc-d591-43ff-ab2a-09e3d7e2a102.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1762,7 +1762,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\38390adb-1c4b-4efe-866e-5fb2dec4c2b8.webp"
+      "OriginalItemSpec": "wwwroot\\Images\\4ef645fc-d591-43ff-ab2a-09e3d7e2a102.webp"
+    },
+    {
+      "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Images\\56e53779-038d-46fb-915f-9f091b8223b3.webp",
+      "SourceId": "Final_EShopProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\",
+      "BasePath": "_content/Final_EShopProject",
+      "RelativePath": "Images/56e53779-038d-46fb-915f-9f091b8223b3.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\56e53779-038d-46fb-915f-9f091b8223b3.webp"
     },
     {
       "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Images\\5af4d828-75ef-4c4a-9007-5b223ffd0c3c.jpg",
@@ -1801,6 +1820,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\6fd99199-03f9-4a11-b329-f6f556d2951f.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Images\\8c0da889-2df9-4191-b683-f2d9846c421a.webp",
+      "SourceId": "Final_EShopProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\",
+      "BasePath": "_content/Final_EShopProject",
+      "RelativePath": "Images/8c0da889-2df9-4191-b683-f2d9846c421a.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\8c0da889-2df9-4191-b683-f2d9846c421a.webp"
     },
     {
       "Identity": "C:\\Users\\IHC\\source\\repos\\Final_EShopProject\\Final_EShopProject\\wwwroot\\Images\\c8fcf716-8598-4194-9ba6-f1aef69d1310.jpg",

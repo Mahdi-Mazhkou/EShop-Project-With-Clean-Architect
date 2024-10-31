@@ -11,11 +11,7 @@ namespace EShop.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-
-        [Display(Name = "تاریخ ایجاد")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public DateTime CreateDate { get; set; } = DateTime.Now;
-        [Display(Name = "پاک شود؟")]
         public bool IsDelete { get; set; }
     }
 }

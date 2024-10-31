@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using EShop.Domain.Models;
 using EShop.Infra.Data.Context;
 using Microsoft.AspNetCore.Authorization;
+using EShop.Application.Services.Interfaces;
+using EShop.Domain.ViewModels.Product;
 
 namespace Final_EShopProject.Areas.Admin.Controllers
 {
@@ -16,30 +18,26 @@ namespace Final_EShopProject.Areas.Admin.Controllers
     public class ProductsController : Controller
     {
         private readonly MyEShopContext _context;
+        private readonly IProductService _service;
 
-        public ProductsController(MyEShopContext context)
+        public ProductsController(MyEShopContext context, IProductService service)
         {
             _context = context;
+            _service = service;
         }
 
-        // GET: Admin/Products
+        #region List Of Products
         public async Task<IActionResult> Index()
         {
-            var myEShopContext = _context.Products.Include(p => p.ProductGroup);
-            return View(await myEShopContext.ToListAsync());
+            var products = await _service.GetListOfProducts();
+            return View(products);
+
         }
-
-        // GET: Admin/Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var product = await _context.Products
-                .Include(p => p.ProductGroup)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _service.GetProductDetailsByIdAsync(id);
+
             if (product == null)
             {
                 return NotFound();
@@ -47,57 +45,47 @@ namespace Final_EShopProject.Areas.Admin.Controllers
 
             return View(product);
         }
+        #endregion
 
-        // GET: Admin/Products/Create
-        public IActionResult Create()
+        #region Create Product
+        public async Task<IActionResult> Create()
         {
+            var products = await _service.GetListOfProducts();
+            var productGroup = products.Select(x => x.ProductGroup);
             ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle");
             return View();
         }
-
-        // POST: Admin/Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product, IFormFile[] imgUp)
+        public async Task<IActionResult> Create(CreateProductViewModel product, IFormFile[] imgUp)
         {
-
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                product.CreateDate = DateTime.Now;
-                _context.Add(product);
-                _context.SaveChanges();
-
-                if (imgUp != null && imgUp.Any())
-                {
-                    foreach (var img in imgUp)
-                    {
-                        string imageName = Guid.NewGuid().ToString() + Path.GetExtension(img.FileName);
-                        string savePath = Path.Combine(Directory.GetCurrentDirectory(),
-                            "wwwroot/Images", imageName);
-                        using (var stream = new FileStream(savePath, FileMode.Create))
-                        {
-                            img.CopyTo(stream);
-                        }
-
-                        _context.ProductImages.Add(new ProductImage()
-                        {
-                            CreateDate = DateTime.Now,
-                            IsDelete = false,
-                            ImageName = imageName,
-                            ProductId = product.Id,
-                        });
-                    }
-                    _context.SaveChanges();
-                }
-                return RedirectToAction(nameof(Index));
+                ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
+                return View(product);
             }
-            ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
-            return View(product);
-        }
 
-        // GET: Admin/Products/Edit/5
+            var p = await _service.CreateProductAsync(product, imgUp);
+            switch (p)
+            {
+                case ResultCreateProduct.Success:
+                    return RedirectToAction(nameof(Index));
+                case ResultCreateProduct.Failed:
+                    {
+                        ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
+                        return View(product);
+                    }
+                default:
+                    {
+                        ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
+                        return View(product);
+                    }
+            }
+
+        }
+        #endregion
+
+        #region Edit Product
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -105,75 +93,51 @@ namespace Final_EShopProject.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var product = await _service.GetProductByIdForEditAsync(id.Value);
             if (product == null)
             {
                 return NotFound();
             }
+
             ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
-            ViewBag.Images = _context.ProductImages.Where(x => x.ProductId == id.Value).ToList();
+            ViewBag.Images = _service.GetProductImagesAsync(product.Id);
             return View(product);
         }
 
-        // POST: Admin/Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product, IFormFile[] imgUp)
+        public async Task<IActionResult> Edit(EditProductViewModel product, IFormFile[] imgUp)
         {
-            if (id != product.Id)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
+                return View(product);
             }
 
-            if (ModelState.IsValid)
+            var result = await _service.UpdateProductAsync(product.Id, product, imgUp);
+            switch (result)
             {
-                try
-                {
-                    _context.Update(product);
+                case ResultEditProduct.Success:
+                    return RedirectToAction(nameof(Index));
+                case ResultEditProduct.Failed:
+                    {
+                        ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
+                        return View(product);
+                    }
 
-                    if (imgUp != null && imgUp.Any())
+                default:
                     {
-                        foreach (var img in imgUp)
-                        {
-                            string imageName = Guid.NewGuid().ToString() + Path.GetExtension(img.FileName);
-                            string savePath = Path.Combine(Directory.GetCurrentDirectory(),
-                                "wwwroot/Images", imageName);
-                            using (var stream = new FileStream(savePath, FileMode.Create))
-                            {
-                                img.CopyTo(stream);
-                            }
+                        ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
+                        return View(product);
+                    }
 
-                            _context.ProductImages.Add(new ProductImage()
-                            {
-                                CreateDate = DateTime.Now,
-                                IsDelete = false,
-                                ImageName = imageName,
-                                ProductId = product.Id,
-                            });
-                        }
-                    }
-                    _context.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["GroupId"] = new SelectList(_context.ProductGroups, "Id", "GroupTitle", product.GroupId);
-            return View(product);
+
         }
 
-        // GET: Admin/Products/Delete/5
+
+        #endregion
+
+        #region Delete Product
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -181,9 +145,7 @@ namespace Final_EShopProject.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .Include(p => p.ProductGroup)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _service.GetProductByIdForDeleteAsync(id.Value);
             if (product == null)
             {
                 return NotFound();
@@ -192,38 +154,25 @@ namespace Final_EShopProject.Areas.Admin.Controllers
             return View(product);
         }
 
-        // POST: Admin/Products/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(DeleteProductViewModel model)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
+
+            var result = await _service.DeleteProductAsync(model.Id);
+
+            switch (result)
             {
-                product.IsDelete = true;
-                _context.Products.Update(product);
-                var images = _context.ProductImages.Where(i => i.ProductId == id);
-                foreach (var image in images)
-                {
-                    string deletePath = Path.Combine(Directory.GetCurrentDirectory(),
-                                                  "wwwroot/Images", image.ImageName);
-                    if (System.IO.File.Exists(deletePath))
+                case ResultDeleteProduct.Success:
+                    return RedirectToAction(nameof(Index));
+                case ResultDeleteProduct.Failed:
                     {
-                        System.IO.File.Delete(deletePath);
+                        ModelState.AddModelError(nameof(DeleteProductViewModel), "عملیات با شکست مواجه شد");
+                        return View(model);
                     }
-                    _context.ProductImages.Remove(image);
-                }
+                default: return View(model);
             }
 
-             _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
         }
-
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.Id == id);
-        }
-
         public void DeleteImage(int id)
         {
             var img = _context.ProductImages.Find(id);
@@ -240,5 +189,7 @@ namespace Final_EShopProject.Areas.Admin.Controllers
             }
 
         }
+        #endregion
+
     }
 }

@@ -20,10 +20,12 @@ namespace EShop.Infra.IOC
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IZarinpalPaymentService, SandBoxZarinpalPaymentService>();
+            services.AddScoped<IProductService, ProductService>();
             #endregion
 
             #region Repositories
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             #endregion
         }
     }
